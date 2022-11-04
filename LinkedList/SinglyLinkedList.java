@@ -117,21 +117,22 @@ public class SinglyLinkedList{
     public static void main(String[] args) {
         SinglyLinkedList ls = new SinglyLinkedList();
         ls.addFirst(3);
-        ls.addFirst(4);
-        ls.addLast(1);
-        ls.addFirst(5);
-        ls.addMid(2);
-        ls.addFirst(3);
-        ls.addFirst(4);
-        ls.addLast(1);
-        ls.addFirst(5);
-        ls.addMid(2);
-        ls.deleteLast();
+        ls.addFirst(1);
+        ls.addLast(7);
+        // ls.addFirst(5);
+        ls.addMid(11);
+        // ls.addFirst(3);
+        // ls.addFirst(4);
+        // ls.addLast(1);
+        // ls.addFirst(5);
+        // ls.addMid(2);
+        ls.print();
         ls.deleteFirst();
-        ls.deleteMid();
+        ls.deleteLast();
+        // ls.deleteMid();
         ls.deleteAtGivenIndex(4);
-        ls.deleteAtGivenIndex(2);
-        ls.deleteAtGivenIndex(2);
+        // ls.deleteAtGivenIndex(2);
+        // ls.deleteAtGivenIndex(2);
         ls.print();
     }
 }
