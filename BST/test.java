@@ -1,19 +1,22 @@
 package BST;
 
-
-public class Traversal {
-    Node root;
+public class test {
     class Node{
         int data;
-        Node right , left;
+        Node right;
+        Node left;
         Node(int data){
             this.data = data;
-            this.right = left =null;
+            right = null;
+            left = null;
         }
     }
+    static Node root;
+
     public void insert(int data){
         root = insertRec(root,data);
     }
+
     public Node insertRec(Node root , int data) {
         if(root == null){
             root = new Node(data);
@@ -25,8 +28,8 @@ public class Traversal {
             root.right = insertRec(root.right, data);
         }
         return root;
-    }  
-    public void preorder(Node root){
+    } 
+    static void preorder(Node root){
         if(root == null){
             return;
         }
@@ -35,38 +38,26 @@ public class Traversal {
         preorder(root.left);
         preorder(root.right);
     }
-    public void inorder(Node root){
+    static void inorder(Node root){
         if(root == null){
             return;
         }
         
         inorder(root.left);
-        System.out.print(root.data+" ");
+        System.out.print(root.data + " ");
         inorder(root.right);
-        
     }
-    public void postOrder(Node root){
+    static void postorder(Node root){
         if(root == null){
             return;
         }
         
-        postOrder(root.left);
-        postOrder(root.right);
-        System.out.print(root.data+" ");
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data + " ");
+
     }
-    public Node search(Node root , int key){
-        if(root == null || root.data== key){
-            return root;
-        }
-        else{
-            if(root.data > key){
-                return search(root.left , key);
-            }
-            else{
-                return search(root.right, key);
-            }
-        }
-    }
+
     public void delete(int key){
         root = deleteRec(root , key);
     }
@@ -104,37 +95,19 @@ public class Traversal {
         }
         return min;
     }
-
     public static void main(String[] args) {
-        Traversal tree = new Traversal();
+        test tree = new test();
         tree.insert(3);
         tree.insert(2);
         tree.insert(1);
         tree.insert(5);
         tree.insert(4);
         tree.insert(6);
-        // System.out.println(tree.root);
-        // System.out.println("PreOrder");
-        
-        // tree.inorder(tree.root);
-        // System.out.println(" ");
-        // System.out.println("PostOrder");
-        // tree.postOrder(tree.root);
-        
-        if(tree.search(tree.root, 2)!=null){
-            System.out.println();
-            System.out.println("Element Found");
-        }
-        else{
-            System.out.println();
-            System.out.println("Not Found");
-        }
-        tree.delete(2);
-        // tree.deleteRec(tree.root, 6);
-        tree.preorder(tree.root);
-        // System.out.println(" ");
-        // System.out.println("InOrder");
-            
+        preorder(root);
+        System.out.println();
+        inorder(root);
+        System.out.println();
+        postorder(root);
+
     }
-    
 }
