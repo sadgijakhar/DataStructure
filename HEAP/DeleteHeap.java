@@ -29,7 +29,7 @@ public class DeleteHeap {
         return x;
     }
     public static void main(String[] args) {
-        int A[] = {90,80,70,60,50,35,55,45,20,30,40};
+        int A[] = {100, 80, 90, 45, 70, 60,};
         int n = A.length;
         int t = delheap(A, n);
         if( t == -1){
