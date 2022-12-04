@@ -71,7 +71,7 @@ public class PostToINWithArray{
         System.out.println(r);
     }
     public static void main(String[] args) {
-        String s = "a^b*c-d+e/f/(g+h)";
+        String s = "A+(B*C-(D/E^)*G)*H";
         int n = s.length();
         postTOin(s, n);
     }
