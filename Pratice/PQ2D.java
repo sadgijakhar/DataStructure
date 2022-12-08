@@ -1,8 +1,10 @@
-import java.util.Scanner;
+package Pratice;
 
-public class PriorityQueue{
-    public static void Insert(int Q[][] , int front[] , int rear [], int x, int col, int pr){
-        if (front[pr] == (rear[pr]+1)%col){
+import java.util.Scanner;
+public class PQ2D {
+    
+    static void insert(int Q[][], int front[] ,int rear[] , int x ,int cols, int pr){
+        if(front[pr] == (rear[pr]+1)%cols){
             System.out.println("Overflow");
         }
         else{
@@ -11,12 +13,31 @@ public class PriorityQueue{
                 rear[pr] = 0;
             }
             else{
-                rear[pr] = (rear[pr]+1)%col;
+                rear[pr] = (rear[pr]+1)%cols;
             }
-            Q[pr][rear[pr]] =x;
+            Q[pr][rear[pr]] = x;
         }
-        
     }
+    static int pop(int Q[][], int front[] , int rear[], int rows , int cols){
+        int y = 0 ;
+        int a = -1;
+        while(y <= rows-1){
+            if(front[y] != -1){
+                a = Q[y][front[y]];
+                if(front[y] == rear[y]){
+                    front[y] = -1;
+                    rear[y] =-1;
+                }
+                else{
+                    front[y] = (front[y]+1)%cols;
+                }
+                break;
+            }
+            
+        }
+        return a;
+    }
+
     public static void print(int Q[][],int front[], int rear[],int n ,int m){
         System.out.println();
         for(int i = 0 ; i < n; i++){
@@ -33,43 +54,22 @@ public class PriorityQueue{
         }
 
     }
-
-    public static int Pop(int Q[][] , int front [], int rear[] , int col,int n){
-        int y = 0;
-        int a = 0;
-        while(y <= n-1){
-            if(front[y] != -1){
-                a = Q[y][front[y]];
-                if(front[y] == rear[y]){
-                    front[y] = -1;
-                    rear[y] = -1;
-                }
-                else{
-                    front[y] = (front[y] + 1)%col;
-                }
-                break;
-            }
-            y++;
-        }
-        return a;
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = 4;
-        int col = 4;
-        int Q[][] = new int[n][col];
-        int front[] = new int[col];
-        int rear[] = new int[col];
-        for(int i = 0 ; i < col ;i++){
+        int rows = sc.nextInt();
+        int cols = sc.nextInt();
+        int Q[][] = new int[rows][cols];
+        int front[] = new int[cols];
+        int rear[] = new int[cols];
+        for(int i = 0 ; i < cols ; i++){
+            rear[i] =-1;
             front[i] = -1;
-            rear[i] = -1;
         }
-        for(int i = 0 ; i < n ;i++){
-            for(int j = 0 ; j<col ;j++){
+        for(int i= 0; i < rows ; i++){
+            for(int j = 0 ; j < cols ; j++){
                 Q[i][j] = -1;
             }
         }
-        
         while(true){
             System.out.println("Press 1 for Insert");
             System.out.println("Press 2 for Delete");
@@ -81,14 +81,14 @@ public class PriorityQueue{
                 int x = sc.nextInt();
                 System.out.print("Priorty Of element: ");
                 int pr = sc.nextInt();
-                Insert(Q, front, rear, x, col, pr);
+                insert(Q, front, rear, x, cols, pr);
             }
             else if(a == 2){
                 System.out.print("Popped Element: ");
-                System.out.println(Pop(Q, front, rear, col, n));
+                System.out.println(pop(Q, front, rear, rows, cols));
             }
             else if (a == 3){
-                print(Q , front,rear,col,n);
+                print(Q , front,rear,cols,rows);
             }
             else if(a==4){
                 break;
@@ -97,7 +97,6 @@ public class PriorityQueue{
                 System.out.println("Invalid Command");
             }
         }
-        
         sc.close();
     }
 }

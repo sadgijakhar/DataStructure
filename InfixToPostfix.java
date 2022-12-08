@@ -30,7 +30,6 @@ public class InfixToPostfix {
             if ((65 <= s[i] && s[i] >= 90) || (97 <= s[i] && s[i] >= 122)) {
                 P[j] = s[i];
                 j++;
-
             }
 
             else if (s[i] == '(') {
@@ -78,7 +77,7 @@ public class InfixToPostfix {
     }
 
     public static void main(String[] args) {
-        char[] s = { '(', 'A', '+', 'B', '*', '(', 'C', '^', 'D', '-', 'X', '/', 'Y', ')', '+', 'A', ')', '+', 'C' };
+        char[] s = { '(', 'A', '+', 'B', '*', '(', 'C', '^', 'D', '-', 'X', '/', 'Y', ')', '+', 'A', ')', '+', 'E' };
         Postfix(s);
     }
 }

@@ -65,8 +65,7 @@ public class Dikshtra{
         }
         
     }
-    public static void main(String[] args) {
-        // Dikshtra d = new Dikshtra();
+    public static void main(String[] args){
         Graph G = new Graph(8, 10);
         G.addedge(0,0,0);
         G.addedge(1,0,300);

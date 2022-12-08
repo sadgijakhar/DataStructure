@@ -1,6 +1,6 @@
 
 
-public class PostToINWithArray{
+public class INtoPOSTWithArray{
     static int precendence(char x){
         if(x == '+'){
             return 1;

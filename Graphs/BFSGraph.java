@@ -90,23 +90,14 @@ public class BFSGraph{
         int v = 6, e = 8;
 
         // Create the graph
-        Graph G = new Graph(v, e);
-        G.addEdge(0, 1);
-        G.addEdge(0, 2);
-        G.addEdge(0, 3);
-        G.addEdge(1, 0);
-        G.addEdge(1, 3);
-        G.addEdge(1, 4);
-        G.addEdge(2, 0);
-        G.addEdge(2, 2);
-        G.addEdge(2, 3);
-        G.addEdge(3, 0);
-        G.addEdge(3, 1);
-        G.addEdge(3, 2);
-        G.addEdge(3, 4);
-        G.addEdge(4, 1);
-        G.addEdge(4, 3);
-        G.BFS(0);
+        Graph g = new Graph(v, e);
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(1, 3);
+        g.addEdge(2, 3);
+        g.addEdge(3, 4);
+        g.addEdge(3, 5);
+        g.BFS(0);
     }
 }
 
